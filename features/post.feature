@@ -1,6 +1,6 @@
 @posts
 Feature: Post
-@create
+  @create
   Scenario: Add a new post
     Given I am on the new post page
     When I fill in the "Name" field with "A post about cucumbers"
@@ -8,7 +8,7 @@ Feature: Post
     And I click on "Submit"
     Then I should see "A post about cucumbers"
     And I should see "Follow along and learn more"
-@update
+  @update
   Scenario: Edit a post
     Given I have a post
     And I am on the edit post page
@@ -17,28 +17,27 @@ Feature: Post
     And I click on "Submit"
     Then I should see "A different title"
     And I should see "Look at this body"
-@destroy
+  @destroy
   Scenario: Delete a post
     Given I have a post
     And I am on the root page
     When I click on "Delete"
     Then I should see "Post Deleted"
     And I should not see "A post body yay"
-
-@errors @create
+  @errors @create
   Scenario: Add a new post with errors
     Given I am on the new post page
     When I fill in the "Name" field with "A post with no body"
     And I click on "Submit"
     Then I should see "There were Errors in creating this post"
-@errors @update
+  @errors @update
   Scenario: Edit a post with errors
     Given I have a post
     And I am on the edit post page
     When I empty the "Name" field
     And I click on "Submit"
     Then I should see "There were Errors in updating this"
-@read
+  @read
   Scenario: View the show page
     Given I have a post
     And I am on the root page
