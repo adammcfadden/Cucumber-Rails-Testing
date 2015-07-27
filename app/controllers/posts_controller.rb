@@ -23,15 +23,28 @@ class PostsController < ApplicationController
   end
 
   def edit
-
+    @post = Post.find(params[:id])
   end
 
   def update
-
+    @post = Post.find(params[:id])
+    if @post.update(post_params)
+      flash[:notice] = "Post Updated"
+      redirect_to root_path
+    else
+      flash[:alert] = "There were Errors in updating this post"
+      render :edit
+    end
   end
 
   def destroy
-
+    @post = Post.find(params[:id])
+    if @post.destroy
+      flash[:notice] = "Post Deleted"
+    else
+      flash[:alert] = "There were Errors in deleting this post"
+    end
+    redirect_to root_path
   end
 
   private

@@ -1,8 +1,9 @@
 <ul>
   <% @posts.each do |post| %>
-  <li><%= post.name %></li>
+  <li><%= link_to post.name, post_path(post) %></li>
   <p>
     <%= post.body %>
+    <%= link_to "Delete", post_path(post), method: :delete %>
   </p>
   <% end %>
 </ul>
